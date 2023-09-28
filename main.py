@@ -33,16 +33,16 @@ def checkChairSpace(imgPro):
             if space_timers[i] is not None:
                 elapsed_time = int(current_time - space_timers[i])
                 cvzone.putTextRect(img, f"Libre por {elapsed_time} s", (x, y - 30), scale=1, thickness=2, offset=0)
-            else:
-                cvzone.putTextRect(img, "Ocupado", (x, y - 30), scale=1, thickness=2, offset=0)
-                space_timers[i] = None
+
+
         else:
             color = (0, 0, 255)
             thickness = 2
-
+            cvzone.putTextRect(img, "Ocupado", (x, y - 30), scale=1, thickness=2, offset=0)
+            space_timers[i] = None
             if space_timers[i] is None:
                 space_timers[i] = current_time
-            spaceCounter+=1
+            spaceCounter += 1
 
         cv2.rectangle(img, pos, (pos[0] + width, pos[1] + height), color, thickness)
 
